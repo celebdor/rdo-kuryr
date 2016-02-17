@@ -1,0 +1,13 @@
+[Unit]
+Description=Kuryr: Docker Plugin for Neutron
+After=syslog.target network.target
+Before=docker.target
+
+[Service]
+Type=simple
+User=kuryr
+ExecStart=/usr/bin/kuryr-libnetwork --config-file /etc/kuryr/kuryr.conf
+KillMode=process
+
+[Install]
+WantedBy=multi-user.target
